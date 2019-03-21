@@ -11,8 +11,8 @@
 function usage
 {
     echo "Usage: ./installROS.sh [[-p package] | [-h]]"
-    echo "Install ROS Kinetic"
-    echo "Installs ros-kinetic-ros-base as default base package; Use -p to override"
+    echo "Install ROS Melodic"
+    echo "Installs ros-melodic-ros-base as default base package; Use -p to override"
     echo "-p | --package <packagename>  ROS package to install"
     echo "                              Multiple usage allowed"
     echo "                              Must include one of the following:"
@@ -97,7 +97,7 @@ tput setaf 2
 echo "Installing ROS"
 tput sgr0
 # This is where you might start to modify the packages being installed, i.e.
-# sudo apt-get install ros-kinetic-desktop
+# sudo apt-get install ros-melodic-desktop
 
 # Here we loop through any packages passed on the command line
 # Install packages ...
@@ -107,9 +107,9 @@ done
 
 # Add Individual Packages here
 # You can install a specific ROS package (replace underscores with dashes of the package name):
-# sudo apt-get install ros-kinetic-PACKAGE
+# sudo apt-get install ros-melodic-PACKAGE
 # e.g.
-# sudo apt-get install ros-kinetic-navigation
+# sudo apt-get install ros-melodic-navigation
 #
 # To find available packages:
 # apt-cache search ros-kinetic
@@ -128,8 +128,8 @@ tput sgr0
 sudo rosdep init
 # To find available packages, use:
 rosdep update
-# Environment Setup - Don't add /opt/ros/kinetic/setup.bash if it's already in bashrc
-grep -q -F 'source /opt/ros/kinetic/setup.bash' ~/.bashrc || echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+# Environment Setup - Don't add /opt/ros/melodic/setup.bash if it's already in bashrc
+grep -q -F 'source /opt/ros/melodic/setup.bash' ~/.bashrc || echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 # Install rosinstall
 tput setaf 2
