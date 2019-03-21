@@ -2,7 +2,7 @@
 # Install Robot Operating System (ROS) on NVIDIA Jetson TX
 # Maintainer of ARM builds for ROS is http://answers.ros.org/users/1034/ahendrix/
 # Information from:
-# http://wiki.ros.org/kinetic/Installation/UbuntuARM
+# http://wiki.ros.org/melodic/Installation/UbuntuARM
 
 # Red is 1
 # Green is 2
@@ -16,9 +16,9 @@ function usage
     echo "-p | --package <packagename>  ROS package to install"
     echo "                              Multiple usage allowed"
     echo "                              Must include one of the following:"
-    echo "                               ros-kinetic-ros-base"
-    echo "                               ros-kinetic-desktop"
-    echo "                               ros-kinetic-desktop-full"
+    echo "                               ros-melodic-ros-base"
+    echo "                               ros-melodic-desktop"
+    echo "                               ros-melodic-desktop-full"
     echo "-h | --help  This message"
 }
 
@@ -28,9 +28,9 @@ function shouldInstallPackages
     echo "Your package list did not include a recommended base package"
     tput sgr0 
     echo "Please include one of the following:"
-    echo "   ros-kinetic-ros-base"
-    echo "   ros-kinetic-desktop"
-    echo "   ros-kinetic-desktop-full"
+    echo "   ros-melodic-ros-base"
+    echo "   ros-melodic-desktop"
+    echo "   ros-melodic-desktop-full"
     echo ""
     echo "ROS not installed"
 }
@@ -53,19 +53,19 @@ done
 # Check to see if other packages were specified
 # If not, set the default base package
 if [ ${#packages[@]}  -eq 0 ] ; then
- packages+="ros-kinetic-ros-base"
+ packages+="ros-melodic-ros-base"
 fi
 echo "Packages to install: "${packages[@]}
 # Check to see if we have a ROS base kinda thingie
 hasBasePackage=false
 for package in "${packages[@]}"; do
-  if [[ $package == "ros-kinetic-ros-base" ]]; then
+  if [[ $package == "ros-melodic-ros-base" ]]; then
      hasBasePackage=true
      break
-  elif [[ $package == "ros-kinetic-desktop" ]]; then
+  elif [[ $package == "ros-melodic-desktop" ]]; then
      hasBasePackage=true
      break
-  elif [[ $package == "ros-kinetic-desktop-full" ]]; then
+  elif [[ $package == "ros-melodic-desktop-full" ]]; then
      hasBasePackage=true
      break
   fi
